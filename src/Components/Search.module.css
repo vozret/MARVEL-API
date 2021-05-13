@@ -1,0 +1,12 @@
+.input {
+  width: 25%;
+  border: 1px solid #ccc;
+  font: inherit;
+  line-height: 1rem;
+  padding: 0.1rem 0.25rem;
+  border-radius: 10px;
+}
+
+.input:focus {
+  outline: none;
+}
