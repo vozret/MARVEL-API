@@ -11,7 +11,7 @@ const CharacterItem = (props) => {
   }
 
   const onClickHandler = () => {
-    props.onChangeBookmark(props.id);
+    props.onBookmark(props.id);
   };
 
   return (

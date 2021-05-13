@@ -19,6 +19,7 @@ const Finder = (props) => {
   //logic will go here
   const [filteredCharacters, setFilteredCharacters] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [bookmarkedCharacters, setBookmarkedCharacters] = useState([]);
 
   useEffect(() => {
     const url =
@@ -67,13 +68,17 @@ const Finder = (props) => {
     setSearchTerm(newValue);
   };
 
+  const onBookmarkHandler = (id) => {
+    console.log("Clicked! " + id);
+  };
+
   return (
     <div className={classes["main-div"]}>
       <Search
         searchValue={searchTerm}
         onChangeHandler={searchTermChangedHandler}
       />
-      <CharacterList data={filteredCharacters} />
+      <CharacterList data={filteredCharacters} onBookmark={onBookmarkHandler} />
     </div>
   );
 };
