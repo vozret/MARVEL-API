@@ -1,0 +1,48 @@
+.button {
+  background-color: #000;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 0.1rem;
+  cursor: pointer;
+}
+
+.button:focus {
+  background-color: #e23636;
+}
+
+.button:hover {
+  background-color: #504a4a;
+}
+
+@media screen and (max-width: 600px) {
+  .characters-grid {
+    display: grid;
+    grid-template-columns: 1;
+    /*grid-template-rows: repeat(20, 1fr);*/
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 741px) and (max-width: 997px) {
+  .characters-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /*grid-template-rows: repeat(10, 1fr);*/
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 998px) {
+  .characters-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /*grid-template-rows: repeat(5, 1fr);*/
+    gap: 1rem;
+  }
+}

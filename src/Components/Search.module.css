@@ -5,6 +5,7 @@
   line-height: 1rem;
   padding: 0.1rem 0.25rem;
   border-radius: 10px;
+  margin-bottom: 1rem;
 }
 
 .input:focus {

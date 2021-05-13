@@ -1,0 +1,18 @@
+.button {
+  background-color: #e23636; /* Green */
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.button:hover {
+  background-color: #504a4a;
+}
+
+.button:disabled {
+  background-color: #518cca;
+}

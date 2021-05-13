@@ -1,0 +1,13 @@
+.character-item {
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.character-item img {
+  width: 100%;
+  height: 75%;
+}
