@@ -26,7 +26,9 @@ const CharacterItem = (props) => {
         Bookmark Status: {props.bookmarked && "Bookmarked!"}{" "}
         {!props.bookmarked && "Not Bookmarked!"}
       </p>
-      <Button onClick={onClickHandler}>{buttonText}</Button>
+      <Button onClick={onClickHandler} disabled={props.bookmarked}>
+        {buttonText}
+      </Button>
     </div>
   );
 };

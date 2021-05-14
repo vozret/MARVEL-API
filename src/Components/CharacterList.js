@@ -14,7 +14,7 @@ const CharacterList = (props) => {
           id={item.id}
           name={item.name}
           picture={item.image}
-          bookmarked={item.bookmarked}
+          bookmarked={item.isBookmarked}
           onBookmark={props.onBookmark}
         />
       );

@@ -20,6 +20,10 @@ const Finder = (props) => {
   const [filteredCharacters, setFilteredCharacters] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [bookmarkedCharacters, setBookmarkedCharacters] = useState([]);
+  localStorage.setItem(
+    "bookmarkedHeroes",
+    JSON.stringify(bookmarkedCharacters)
+  );
 
   useEffect(() => {
     const url =
@@ -36,14 +40,24 @@ const Finder = (props) => {
       hash;
     function fetchMarvelCharactersHandler() {
       if (searchTerm !== "") {
+        //if (bookmarkedCharacters.length > 0) {
+        // prvo prođi kroz bookmarkane elemente i pogledaj odgovara li koji element sa
+        // searchTerm-om
+        // takve elemente odvoji i prve ih prikaži u rezultatima pretraživanja
+        //}
+        // dohvatit localStorage i pretvorit ga u niz
+        // const bookmarkedIds = (
+        //   localStorage.getItem("bookmarkedHeros") || "[]"
+        // ).toArray();
         fetch(url)
           .then((response) => {
-            console.log("This is response: ");
+            // console.log("This is response: ");
             console.log(response);
             return response.json();
           })
           .then((data) => {
-            console.log(data.data);
+            console.log(bookmarkedCharacters);
+            // console.log(data.data);
             const extractedCharacterData = data.data.results.map(
               (character) => {
                 return {
@@ -53,12 +67,22 @@ const Finder = (props) => {
                     character.thumbnail.path +
                     "/portrait_medium." +
                     character.thumbnail.extension,
+                  // LSniz.find
+                  isBookmarked: bookmarkedCharacters.find(
+                    (item) => item.id === character.id
+                  )
+                    ? true
+                    : false,
                 };
               }
             );
             console.log(extractedCharacterData);
             setFilteredCharacters(extractedCharacterData);
           });
+      } else {
+        setFilteredCharacters(
+          JSON.parse(localStorage.getItem("bookmarkedHeroes"))
+        );
       }
     }
     fetchMarvelCharactersHandler();
@@ -68,9 +92,21 @@ const Finder = (props) => {
     setSearchTerm(newValue);
   };
 
-  const onBookmarkHandler = (id) => {
+  function onBookmarkHandler(id) {
     console.log("Clicked! " + id);
-  };
+    let characterToBookmark = filteredCharacters.find((item) => item.id === id);
+    // console.log(characterToBookmark);
+    characterToBookmark.isBookmarked = true;
+    setBookmarkedCharacters((oldState) => [...oldState, characterToBookmark]);
+    localStorage.setItem(
+      "bookmarkedHeroes",
+      JSON.stringify(bookmarkedCharacters)
+    );
+    console.log(bookmarkedCharacters);
+    console.log(characterToBookmark);
+    console.log(filteredCharacters);
+    console.log(bookmarkedCharacters);
+  }
 
   return (
     <div className={classes["main-div"]}>
