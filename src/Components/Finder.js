@@ -20,10 +20,17 @@ const Finder = (props) => {
   const [filteredCharacters, setFilteredCharacters] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [bookmarkedCharacters, setBookmarkedCharacters] = useState([]);
-  localStorage.setItem(
-    "bookmarkedHeroes",
-    JSON.stringify(bookmarkedCharacters)
-  );
+
+  useEffect(() => {
+    setBookmarkedCharacters(
+      JSON.parse(localStorage.getItem("bookmarkedHeroes")) || []
+    );
+  }, []);
+
+  //   localStorage.setItem(
+  //     "bookmarkedHeroes",
+  //     JSON.stringify(bookmarkedCharacters)
+  //   );
 
   useEffect(() => {
     const url =
