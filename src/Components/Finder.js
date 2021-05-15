@@ -27,10 +27,10 @@ const Finder = (props) => {
   //   );
   // }, []);
 
-  localStorage.setItem(
-    "bookmarkedHeroes",
-    JSON.stringify(bookmarkedCharacters)
-  );
+  // localStorage.setItem(
+  //   "bookmarkedHeroes",
+  //   JSON.stringify(bookmarkedCharacters)
+  // );
 
   useEffect(() => {
     const url =
@@ -101,19 +101,14 @@ const Finder = (props) => {
   };
 
   function onBookmarkHandler(id) {
-    console.log("Clicked! " + id);
     let characterToBookmark = filteredCharacters.find((item) => item.id === id);
     // console.log(characterToBookmark);
     characterToBookmark.isBookmarked = true;
     setBookmarkedCharacters((oldState) => [...oldState, characterToBookmark]);
     localStorage.setItem(
       "bookmarkedHeroes",
-      JSON.stringify(bookmarkedCharacters)
+      JSON.stringify([...bookmarkedCharacters, characterToBookmark])
     );
-    console.log(bookmarkedCharacters);
-    console.log(characterToBookmark);
-    console.log(filteredCharacters);
-    console.log(bookmarkedCharacters);
   }
 
   return (
