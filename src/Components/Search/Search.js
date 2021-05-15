@@ -10,7 +10,7 @@ const Search = (props) => {
     <input
       className={classes.input}
       placeholder="Search For Your Hero"
-      type="search"
+      type="text"
       value={props.searchValue}
       onChange={searchChangedHandler}
     />

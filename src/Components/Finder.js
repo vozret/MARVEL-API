@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import md5 from "md5";
 
-import Search from "./Search";
-import CharacterList from "./CharacterList";
+import Search from "./Search/Search";
+import CharacterList from "./Characters/CharacterList";
 
 import classes from "./Finder.module.css";
 
@@ -21,12 +21,14 @@ const Finder = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [bookmarkedCharacters, setBookmarkedCharacters] = useState([]);
 
+  // didn't use this because the setting local storage would be one step behind
   // useEffect(() => {
   //   setBookmarkedCharacters(
   //     JSON.parse(localStorage.getItem("bookmarkedHeroes")) || []
   //   );
   // }, []);
 
+  // Didn't use this because the local storage will be emptied after every page refreshment
   // localStorage.setItem(
   //   "bookmarkedHeroes",
   //   JSON.stringify(bookmarkedCharacters)

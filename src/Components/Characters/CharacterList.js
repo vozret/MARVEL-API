@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import classes from "./CharacterList.module.css";
 
 import CharacterItem from "./CharacterItem";
-import PageButton from "../UI/PageButton";
+import PageButton from "../../UI/PageButton";
 
 const CharacterList = (props) => {
   const [currentPage, setCurrentPage] = useState(1);

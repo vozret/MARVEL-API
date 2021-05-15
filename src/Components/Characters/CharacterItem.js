@@ -1,6 +1,6 @@
 import React from "react";
 
-import Button from "../UI/Button";
+import Button from "../../UI/Button";
 
 import classes from "./CharacterItem.module.css";
 
