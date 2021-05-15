@@ -1,23 +1,5 @@
-.button {
-  background-color: #000;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  padding: 0.5rem;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1rem;
-  margin: 0.1rem;
-  cursor: pointer;
-}
-
-.button:focus {
-  background-color: #e23636;
-}
-
-.button:hover {
-  background-color: #504a4a;
+.button-div {
+  margin-top: 0.5rem;
 }
 
 @media screen and (max-width: 500px) {

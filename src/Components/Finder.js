@@ -21,11 +21,11 @@ const Finder = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [bookmarkedCharacters, setBookmarkedCharacters] = useState([]);
 
-  useEffect(() => {
-    setBookmarkedCharacters(
-      JSON.parse(localStorage.getItem("bookmarkedHeroes")) || []
-    );
-  }, []);
+  // useEffect(() => {
+  //   setBookmarkedCharacters(
+  //     JSON.parse(localStorage.getItem("bookmarkedHeroes")) || []
+  //   );
+  // }, []);
 
   localStorage.setItem(
     "bookmarkedHeroes",
