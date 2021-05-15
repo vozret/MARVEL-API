@@ -19,7 +19,7 @@ I didn't include bookmarkedCharacters in the dependencies list because the app w
 
 "Main" file (here used like layout).
 
-### Headr.js and Footer.js:
+### Header.js and Footer.js:
 
 Used only to layout the headr and footer text.
 In previous version of this project, search component was in the header. But for various reasons (and simplicity), Search component was moved to Finder component.
@@ -39,19 +39,6 @@ For fetching characters, I didn't use any library (like axios). Because the goal
 
 ### onBookmarkHandler:
 
-<<<<<<< HEAD
-function onBookmarkHandler(id) {
-let characterToBookmark = filteredCharacters.find((item) => item.id === id);
-// console.log(characterToBookmark);
-characterToBookmark.isBookmarked = true;
-setBookmarkedCharacters((oldState) => [...oldState, characterToBookmark]);
-localStorage.setItem(
-"bookmarkedHeroes",
-JSON.stringify([...bookmarkedCharacters, characterToBookmark])
-);
-}
-
-=======
   function onBookmarkHandler(id) {
     let characterToBookmark = filteredCharacters.find((item) => item.id === id);
     // console.log(characterToBookmark);
@@ -63,7 +50,6 @@ JSON.stringify([...bookmarkedCharacters, characterToBookmark])
     );
   }
   
->>>>>>> ca1817e43f2dada89c58faf63b5611f808b1e2c4
 I set new bookmarked character in the local storage like this: JSON.stringify([...bookmarkedCharacters, characterToBookmark])
 Because if I put JSON.stringify(bookmarkedCharacters).
 The list in the local storage would be lagging one step.
@@ -71,7 +57,3 @@ The list in the local storage would be lagging one step.
 ### CharacterList.js:
 
 Via props gets the whole filteredCharacters list which then maps to every CharacterItem. Implements pagination.
-<<<<<<< HEAD
-=======
-
->>>>>>> ca1817e43f2dada89c58faf63b5611f808b1e2c4
