@@ -27,10 +27,10 @@ const Finder = (props) => {
     );
   }, []);
 
-  //   localStorage.setItem(
-  //     "bookmarkedHeroes",
-  //     JSON.stringify(bookmarkedCharacters)
-  //   );
+  localStorage.setItem(
+    "bookmarkedHeroes",
+    JSON.stringify(bookmarkedCharacters)
+  );
 
   useEffect(() => {
     const url =
@@ -88,7 +88,8 @@ const Finder = (props) => {
           });
       } else {
         setFilteredCharacters(
-          JSON.parse(localStorage.getItem("bookmarkedHeroes"))
+          JSON.parse(localStorage.getItem("bookmarkedHeroes")) || []
+          //bookmarkedCharacters
         );
       }
     }
