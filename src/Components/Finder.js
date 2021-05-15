@@ -21,12 +21,11 @@ const Finder = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [bookmarkedCharacters, setBookmarkedCharacters] = useState([]);
 
-  // didn't use this because the setting local storage would be one step behind
-  // useEffect(() => {
-  //   setBookmarkedCharacters(
-  //     JSON.parse(localStorage.getItem("bookmarkedHeroes")) || []
-  //   );
-  // }, []);
+  useEffect(() => {
+    setBookmarkedCharacters(
+      JSON.parse(localStorage.getItem("bookmarkedHeroes")) || []
+    );
+  }, []);
 
   // Didn't use this because the local storage will be emptied after every page refreshment
   // localStorage.setItem(
