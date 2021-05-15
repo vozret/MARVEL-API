@@ -11,10 +11,7 @@ src/Components/Finder.js
 Line 97:6: React Hook useEffect has a missing dependency: 'bookmarkedCharacters'. Either include it or remove the dependency array
 
 =======
-  Line 97:6:  React Hook useEffect has a missing dependency: 'bookmarkedCharacters'. Either include it or remove the dependency array
- 
->>>>>>> ca1817e43f2dada89c58faf63b5611f808b1e2c4
-If 'bookmarkedCharacters' is set inside dependencies of useEffect hook, te app will be stuck inside infinite loop.
+I didn't include bookmarkedCharacters in the dependencies list because the app would be stuck inside infinite loop.
 
 ## FILES
 
