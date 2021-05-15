@@ -7,7 +7,7 @@ import classes from "./CharacterItem.module.css";
 const CharacterItem = (props) => {
   let buttonText = "Bookmark this character!";
   if (props.bookmarked) {
-    buttonText = "Already Bookmarked!";
+    buttonText = "Bookmarked!";
   }
 
   const onClickHandler = () => {
