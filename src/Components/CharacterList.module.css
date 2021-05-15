@@ -20,7 +20,7 @@
   background-color: #504a4a;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
   .characters-grid {
     display: grid;
     grid-template-columns: 1;
@@ -29,7 +29,7 @@
   }
 }
 
-@media screen and (min-width: 741px) and (max-width: 997px) {
+@media screen and (min-width: 501px) and (max-width: 920px) {
   .characters-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -38,7 +38,7 @@
   }
 }
 
-@media screen and (min-width: 998px) {
+@media screen and (min-width: 921px) {
   .characters-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
