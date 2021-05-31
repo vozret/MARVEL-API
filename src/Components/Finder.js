@@ -88,10 +88,10 @@ const Finder = (props) => {
             setFilteredCharacters(extractedCharacterData);
           });
       } else {
-        setFilteredCharacters(
-          JSON.parse(localStorage.getItem("bookmarkedHeroes")) || []
-          //bookmarkedCharacters
-        );
+        // setFilteredCharacters(
+        //   JSON.parse(localStorage.getItem("bookmarkedHeroes")) || []
+        //   //bookmarkedCharacters
+        // );
       }
     }
     fetchMarvelCharactersHandler();
@@ -102,14 +102,38 @@ const Finder = (props) => {
   };
 
   function onBookmarkHandler(id) {
-    let characterToBookmark = filteredCharacters.find((item) => item.id === id);
-    // console.log(characterToBookmark);
-    characterToBookmark.isBookmarked = true;
-    setBookmarkedCharacters((oldState) => [...oldState, characterToBookmark]);
-    localStorage.setItem(
-      "bookmarkedHeroes",
-      JSON.stringify([...bookmarkedCharacters, characterToBookmark])
-    );
+    //let characterToBookmark = filteredCharacters.find((item) => item.id === id);
+    console.log("filtered: ", filteredCharacters);
+    console.log(bookmarkedCharacters);
+
+    if (bookmarkedCharacters.find((item) => item.id === id)) {
+      console.log(bookmarkedCharacters);
+      setBookmarkedCharacters((oldState) => {
+        return bookmarkedCharacters.filter((character) => character.id !== id);
+      });
+
+      localStorage.setItem(
+        "bookmarkedHeroes",
+        JSON.stringify(bookmarkedCharacters.filter((item) => item.id !== id))
+      );
+      setFilteredCharacters((filteredCharacters) => {
+        let character = filteredCharacters.find((item) => item.id === id);
+        character.isBookmarked = false;
+        return [...filteredCharacters];
+      });
+    } else {
+      let characterToBookmark = filteredCharacters.find(
+        (item) => item.id === id
+      );
+      characterToBookmark.isBookmarked = true;
+
+      setBookmarkedCharacters((oldState) => [...oldState, characterToBookmark]);
+
+      localStorage.setItem(
+        "bookmarkedHeroes",
+        JSON.stringify([...bookmarkedCharacters, characterToBookmark])
+      );
+    }
   }
 
   return (
@@ -118,7 +142,10 @@ const Finder = (props) => {
         searchValue={searchTerm}
         onChangeHandler={searchTermChangedHandler}
       />
-      <CharacterList data={filteredCharacters} onBookmark={onBookmarkHandler} />
+      <CharacterList
+        data={searchTerm === "" ? bookmarkedCharacters : filteredCharacters}
+        onBookmark={onBookmarkHandler}
+      />
     </div>
   );
 };
