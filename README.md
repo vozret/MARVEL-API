@@ -1,4 +1,4 @@
-# Blank-again
+# MARVEL-API
 
 This is a simple web application made for browsing and bookmarking Marvel heroes.
 Use it by just typing the name of the Marvel character. No need to press any search button (which doesn't exist btw).
